@@ -1,0 +1,164 @@
+\documentclass[10pt]{article}
+\usepackage[UTF8]{inputenc}\DeclareUnicodeCharacter{2212}{-}
+\usepackage[czech, main = english]{babel}
+\usepackage{csquotes} % quotes package
+
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+
+% Biblatex setup
+\usepackage[ 
+backend=biber
+%,style=iso-authoryear
+,style=iso-numeric
+%,style=numeric
+%,sortlocale=cs_CZ
+,autolang=other
+,bibencoding=UTF8
+%,urldate=edtf
+]{biblatex}
+\addbibresource{my_bibl_template.bib}
+
+% Add square brackets to iso-numeric
+\DeclareFieldFormat{labelnumberwidth}{\mkbibbrackets{#1}}
+\renewcommand*{\bibfont}{\small}
+
+\usepackage{fancyhdr} % controls headers and footers
+\usepackage{microtype} % nicer typesetting
+\usepackage[hidelinks]{hyperref} % hyperrefs and pdf info
+\usepackage{graphicx,import} % image import
+\graphicspath{ {./pics/} } % path to the pics
+\usepackage{float} % H in image positioning
+\usepackage{enumitem} % own lists
+\usepackage{amsmath} % equations typesetting
+%\usepackage{ar}  % symbol aspect ration a/r
+\usepackage{caption}  % modifying the captions
+\usepackage{subcaption}  % modifying the subcaptions
+\usepackage{tikz}  % tikz package for images
+%\usetikzlibrary{external}
+%\usetikzlibrary{matrix, positioning}
+\usepackage{hhline}  % thick line for tables
+\usepackage{icomma}  % space after a comma in math mode
+\usepackage{booktabs}  % booktabs tables
+%\usepackage{longtable}  % long tables
+\usepackage{makecell} % making a cell inside a table, braking a line inside a cell
+\usepackage{siunitx} % typesetting of numbers, SI units
+\usepackage{pgf} % import pgf, but is it better to import pdf
+\usepackage{bm} % bold notation for vectors and tensors
+
+\pagenumbering{gobble} % omit page numbers
+
+\newcommand{\vect}[1]{\boldsymbol{\mathbf{#1}}} % bold notation for vectors and tensors
+
+%The geometry is checked by printing
+\usepackage{geometry}
+ \geometry{
+ a4paper,
+%total={170mm,247mm},
+left=22mm,
+right=25mm,
+top=9mm,
+bottom=12mm,
+headheight=12.7pt,
+includeheadfoot
+ }
+
+%%%%% SET HEADER %%%%%
+ \pagestyle{fancy}
+\fancyhf{}
+\rhead{\textbf{22. června 2021, Liberec}}
+\lhead{\textbf{SVOČ 2021}}
+%%%%%%%%%%%%%%%%%%%%%%
+
+% setup of the figure caption
+\captionsetup[figure]{labelfont={bf},name={Figure}}
+
+% setup of the table caption
+\captionsetup[table]{labelfont={bf},name={Table}}
+
+\def\figureautorefname{Fig.} % definition of autoref name for figure
+\def\tableautorefname{Tab.} % definition of autoref name for table
+
+% Supress URL when DOI is defined in biblatex
+\DeclareFieldFormat{url}{%
+  \iffieldundef{doi}{%
+    \mkbibacro{URL}\addcolon\space\url{#1}%
+  }{%
+  }%
+}
+
+\DeclareFieldFormat{urldate}{%
+  \iffieldundef{doi}{%
+    \mkbibparens{\bibstring{urlseen}\space#1}%
+  }{%
+  }%
+}
+
+% Setup of the pdf info
+\hypersetup{pdftitle={Name of the work}}
+\hypersetup{pdfauthor={Bc. John Doe}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{document}
+\begin{center}
+\textbf{\Large \textcolor{black} {Name of the work}} \\
+\vspace{0.5cm} 
+\large Bc. John Doe \\
+\vspace{0.5cm}
+\large Sekce -- STROJÍRENSTVÍ \\
+\large Fakulta strojní, 5. ročník \\
+\large Magisterský studijní program -- APLIKOVANÁ MECHANIKA
+\end{center}
+\vspace{1cm}
+
+\noindent\textbf{Abstract:} Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc venenatis sed orci in accumsan. Integer efficitur malesuada elit, vel pretium lectus efficitur vitae.
+
+\vspace{0.25cm}
+\noindent\textbf{Keywords:} Keyword 1, Keyword 2, Keyword 3, Keyword 4 
+\vspace{0.5cm}
+
+\section{Introduction}
+Lorem ipsum dolor sit amet \cites{Bull1996}{Pope2000}{Goody2004}, consectetur adipiscing elit. Nunc venenatis sed orci in accumsan. Integer efficitur malesuada elit, vel pretium lectus efficitur vitae. In luctus, leo at faucibus dictum, lectus nunc molestie dui, vitae imperdiet nibh augue nec turpis. Phasellus ac tortor imperdiet, accumsan diam at, pharetra dui. Fusce vulputate consequat sapien, sed consectetur ipsum feugiat eu. Fusce ac mollis leo, ac rhoncus sem. Sed dui leo, ultrices vel fermentum sed, sodales ut libero. Quisque tristique hendrerit scelerisque.
+
+Etiam nulla velit, placerat vel ante et, vehicula elementum dolor. Nulla eu nulla consequat, vehicula nisi non, vulputate eros. Nunc eu lectus sit amet elit aliquet convallis. Integer sit amet tellus sit amet quam venenatis suscipit vitae et sem. Morbi quis euismod felis, vitae rutrum turpis. Donec dui arcu, interdum at massa tristique, rhoncus mattis justo. Duis non velit sed mi aliquet posuere. Curabitur sed velit enim.
+
+\section{Topic 1}
+Aenean vestibulum lacus eget odio porta, nec sodales augue posuere. Praesent facilisis suscipit placerat. Mauris nec turpis elit. Praesent lectus sem, dignissim ac pretium sed, convallis tristique ipsum. Praesent mattis mi vel risus dignissim, semper auctor elit cursus. Curabitur justo velit, euismod id nulla vel, dapibus mollis purus. In lacinia eu lorem a feugiat. Integer convallis eget risus in scelerisque. Suspendisse potenti. Mauris malesuada aliquet lorem vitae rhoncus. Vestibulum quis sapien eget sapien vehicula feugiat.
+
+Mauris consectetur nibh vitae enim vehicula pulvinar. Pellentesque ornare dignissim bibendum. Nunc id massa eu arcu tincidunt auctor. Etiam rutrum, arcu sed sagittis hendrerit, metus nibh aliquam nisl, ut condimentum neque neque eu dui. In nec ante libero. Etiam vulputate sem a nibh elementum, ac finibus urna dapibus. Fusce imperdiet maximus pharetra. Donec consequat felis nunc, tempus interdum erat placerat id. Nulla tincidunt massa auctor, pulvinar mauris eget, pellentesque ligula.
+
+\subsection{Topic 2}
+Cras ac lacus id urna auctor varius et quis risus. Phasellus hendrerit ipsum sed pretium iaculis. Nulla condimentum nisl eu maximus dignissim. Morbi metus nibh, placerat eget enim ac, vestibulum sollicitudin lacus. Mauris auctor vehicula dui ac laoreet. Suspendisse potenti. Cras tristique mi nisl, vitae pulvinar dui sagittis at. Praesent vel feugiat quam, et fringilla justo. Vivamus et accumsan nulla. Duis in cursus velit. Pellentesque ac eleifend sem, at tincidunt ipsum.
+
+Interdum et malesuada fames ac ante ipsum primis in faucibus. Fusce dui lorem, pulvinar ultrices ipsum sed, venenatis tempus urna. Vestibulum quis ipsum in tellus vulputate varius a in magna. Ut purus urna, gravida eget augue ut, aliquam sagittis massa. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Integer accumsan bibendum iaculis. Aenean eget commodo tortor, eu molestie neque. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Suspendisse potenti. Curabitur eget felis vestibulum, interdum enim in, tempor turpis. Vestibulum consectetur dui sit amet diam ultrices consectetur. Praesent placerat tristique urna eget auctor.
+
+\section{Topic 3}
+Maecenas lobortis, sapien ac tristique dapibus, quam mi luctus nisi, et porttitor erat dui vel neque. Ut quis volutpat tellus. Vivamus quis tellus vel mi molestie consectetur. Suspendisse facilisis eget mauris vel gravida. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Sed condimentum vulputate felis, eget iaculis lectus euismod ut. Cras maximus purus faucibus, cursus ligula et, rutrum dui. Donec vulputate nisi sit amet tellus gravida malesuada.
+
+Integer mi enim, tristique congue dapibus non, mollis sed dolor. Nullam et odio risus. Aenean in commodo ligula, quis accumsan lorem. Integer iaculis tristique mauris mollis mollis. Nulla accumsan felis ac ipsum pretium varius. Praesent tempus quam sed nisl tincidunt, quis feugiat erat vulputate. Vestibulum vitae mauris dui. Phasellus blandit hendrerit sem, eget placerat erat iaculis eu. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Cras sit amet aliquam leo, ut fringilla enim. Ut vel mi sit amet lectus consectetur consequat quis eget mi. Maecenas at odio non ipsum venenatis dapibus. 
+
+
+\section{Topic 4}
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc venenatis sed orci in accumsan. Integer efficitur malesuada elit, vel pretium lectus efficitur vitae. In luctus, leo at faucibus dictum, lectus nunc molestie dui, vitae imperdiet nibh augue nec turpis. Phasellus ac tortor imperdiet, accumsan diam at, pharetra dui. Fusce vulputate consequat sapien, sed consectetur ipsum feugiat eu. Fusce ac mollis leo, ac rhoncus sem. Sed dui leo, ultrices vel fermentum sed, sodales ut libero. Quisque tristique hendrerit scelerisque.
+
+Etiam nulla velit, placerat vel ante et, vehicula elementum dolor. Nulla eu nulla consequat, vehicula nisi non, vulputate eros. Nunc eu lectus sit amet elit aliquet convallis. Integer sit amet tellus sit amet quam venenatis suscipit vitae et sem. Morbi quis euismod felis, vitae rutrum turpis. Donec dui arcu, interdum at massa tristique, rhoncus mattis justo. Duis non velit sed mi aliquet posuere. Curabitur sed velit enim.
+
+Aenean vestibulum lacus eget odio porta, nec sodales augue posuere. Praesent facilisis suscipit placerat. Mauris nec turpis elit. Praesent lectus sem, dignissim ac pretium sed, convallis tristique ipsum. Praesent mattis mi vel risus dignissim, semper auctor elit cursus. Curabitur justo velit, euismod id nulla vel, dapibus mollis purus. In lacinia eu lorem a feugiat. Integer convallis eget risus in scelerisque. Suspendisse potenti. Mauris malesuada aliquet lorem vitae rhoncus. Vestibulum quis sapien eget sapien vehicula feugiat.
+\section{Topic 5}
+Mauris consectetur nibh vitae enim vehicula pulvinar. Pellentesque ornare dignissim bibendum. Nunc id massa eu arcu tincidunt auctor. Etiam rutrum, arcu sed sagittis hendrerit, metus nibh aliquam nisl, ut condimentum neque neque eu dui. In nec ante libero. Etiam vulputate sem a nibh elementum, ac finibus urna dapibus. Fusce imperdiet maximus pharetra. Donec consequat felis nunc, tempus interdum erat placerat id. Nulla tincidunt massa auctor, pulvinar mauris eget, pellentesque ligula.
+
+Cras ac lacus id urna auctor varius et quis risus. Phasellus hendrerit ipsum sed pretium iaculis. Nulla condimentum nisl eu maximus dignissim. Morbi metus nibh, placerat eget enim ac, vestibulum sollicitudin lacus. Mauris auctor vehicula dui ac laoreet. Suspendisse potenti. Cras tristique mi nisl, vitae pulvinar dui sagittis at. Praesent vel feugiat quam, et fringilla justo. Vivamus et accumsan nulla. Duis in cursus velit. Pellentesque ac eleifend sem, at tincidunt ipsum.
+
+\section{Topic 6}
+Interdum et malesuada fames ac ante ipsum primis in faucibus. Fusce dui lorem, pulvinar ultrices ipsum sed, venenatis tempus urna. Vestibulum quis ipsum in tellus vulputate varius a in magna. Ut purus urna, gravida eget augue ut, aliquam sagittis massa. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Integer accumsan bibendum iaculis. Aenean eget commodo tortor, eu molestie neque. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Suspendisse potenti. Curabitur eget felis vestibulum, interdum enim in, tempor turpis. Vestibulum consectetur dui sit amet diam ultrices consectetur. Praesent placerat tristique urna eget auctor.
+
+Maecenas lobortis, sapien ac tristique dapibus, quam mi luctus nisi, et porttitor erat dui vel neque. Ut quis volutpat tellus. Vivamus quis tellus vel mi molestie consectetur. Suspendisse facilisis eget mauris vel gravida. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Sed condimentum vulputate felis, eget iaculis lectus euismod ut. Cras maximus purus faucibus, cursus ligula et, rutrum dui. Donec vulputate nisi sit amet tellus gravida malesuada.
+
+\section*{Acknowledgment}
+Integer mi enim, tristique congue dapibus non, mollis sed dolor. Nullam et odio risus. Aenean in commodo ligula, quis accumsan lorem. Integer iaculis tristique mauris mollis mollis. Nulla accumsan felis ac ipsum pretium varius. Praesent tempus quam sed nisl tincidunt, quis feugiat erat vulputate. Vestibulum vitae mauris dui. Phasellus blandit hendrerit sem, eget placerat erat iaculis eu. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Cras sit amet aliquam leo, ut fringilla enim. Ut vel mi sit amet lectus consectetur consequat quis eget mi. Maecenas at odio non ipsum venenatis dapibus. 
+
+\printbibliography[title={References}] % print references
+\addcontentsline{toc}{chapter}{References} % add references into table of content
+
+\end{document}
