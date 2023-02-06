@@ -7,3 +7,7 @@ The template is derived from the original word template. Web page of the competi
 ## Usage
 
 Typeset with pdfLaTeX and BibLaTeX/Biber.
+
+## License
+
+MIT License
